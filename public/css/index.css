@@ -1,0 +1,44 @@
+body {
+  background-color: #585858;
+}
+#content {
+  /*background-color: white;*/
+  position: relative;
+  margin-right: auto;
+  margin-left: auto;
+  width: 800px;
+  height: 600px;
+  background-color: white;
+  padding: 10px;
+}
+#content h1, #content form {
+  text-align: center;
+}
+#content form {
+  width: 400px;
+  height: 200px;
+  padding: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #D8D8D8;
+}
+#actived {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* -----------Smartphone View----------- */ 
+@media only screen and (max-width : 480px)   {
+
+}
+/* -----------Tablet View----------- */ 
+@media only screen and (max-width : 768px) and (min-width : 481px)   {
+  #form h1 {
+    color: red;
+  }
+}
+/* -----------Desktop View----------- */ 
+@media only screen and (min-width : 769px)   {
+  #form h1 {
+  }
+}
