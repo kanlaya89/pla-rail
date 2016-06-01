@@ -2,9 +2,22 @@ var app = angular.module('SPEED', []);
 var socket = io.connect();
 
 app.controller('myCtl1', function($scope){
+  // set default checked radio id=1
+  $scope.id = '1';
+  // id radio button is checked
+  $scope.radio1=function() {
+    console.log("radio1");
+    $("#form").removeClass("radio2").addClass("radio1");
+  }
+  $scope.radio2=function() {
+    $("#form").removeClass("radio1").addClass("radio2");
+    console.log("radio2");
+  }
+
+  // speed button is clicked
   $scope.on=function(){
     data = {id:$scope.id, action:"On"}
-    // send socket_data to server
+    // send socket data to server
     socket.emit('getdata', data);
   };
   $scope.middle=function(){
@@ -16,7 +29,7 @@ app.controller('myCtl1', function($scope){
     socket.emit('getdata', data);
   };
 });
-// get socket_data from server
+// get socket data from server
 socket.on('show1', function(action){
   console.log('show1'+ action);
   $('#show1').text("No1 is "+ action);

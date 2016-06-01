@@ -1,44 +1,143 @@
 body {
+  margin-top: 30px;
   background-color: #585858;
 }
 #content {
-  /*background-color: white;*/
+  background-color: white;
   position: relative;
   margin-right: auto;
   margin-left: auto;
-  width: 800px;
-  height: 600px;
-  background-color: white;
-  padding: 10px;
 }
 #content h1, #content form {
   text-align: center;
 }
+h1 {
+  color: rgba(0,0,0, 0.7);
+  text-shadow: 1px 4px 6px #C8CACD, 0 0 0 #000, 1px 4px 6px #C8CACD;
+} 
 #content form {
-  width: 400px;
-  height: 200px;
+  margin-right: auto;
+  margin-left: auto;
+  color: white;
+  text-shadow: 1px 1px 2px black, -1px -1px 2px black;
+
+}
+.radio1 {
+  background-color: #F5A9A9;
+  background-image: url("../img/1.jpg");
+}
+.radio2 {
+  background-color: #A9E2F3;
+  background-image: url("../img/2.jpeg");
+}
+#show {
+  width: 200px;
   padding: 10px;
   margin-right: auto;
   margin-left: auto;
-  background-color: #D8D8D8;
 }
-#actived {
-  margin-right: auto;
-  margin-left: auto;
+.button {
+  -webkit-transition-duration: 0.2s; /* Safari */
+  transition-duration: 0.2s;
+  font-family: 'Lato', serif;
+  border-radius: 8px;
+  background-color: white;
+  border: none;
+  /*border: 0.5px solid #585858;*/
+  box-shadow: 1px 1px 0.5px 1px #585858;
+  border: 2px solid #4AF310;
+}
+.button_mid {
+  border: 2px solid #F3F310;
+}
+.button_off {
+  border: 2px solid #F32F10;
+}
+.button:hover {
+  /*background-color: #d8d8d8;*/
+  background-color:  #4AF310;
+}
+.button_mid:hover {
+  background-color:  #F3F310;
+}
+.button_off:hover {
+  background-color:  #F32F10;
+}
+#show {
+  font-family: 'Lato', serif;
 }
 
 /* -----------Smartphone View----------- */ 
 @media only screen and (max-width : 480px)   {
-
+  #content {
+    width: 100%;
+    height: 600px;
+    padding: 5px;
+  }
+  h1 {
+    font-size: 35px;
+  }
+  form {
+    width: 90%;
+    padding: 20px;
+    font-size: 20px;
+  }
+  .button {
+    width: 50px;
+    font-size: 13px;
+    padding: 3px;
+  }
+  #show p{
+    font-size: 18px;
+  }
 }
 /* -----------Tablet View----------- */ 
 @media only screen and (max-width : 768px) and (min-width : 481px)   {
-  #form h1 {
-    color: red;
+  #content {
+    width: 100%;
+    height: 600px;
+    padding: 10px;
+  }
+  h1 {
+    font-size: 50px;
+  }
+  form {
+    width: 400px;
+    height: 130px;
+    padding: 30px;
+    font-size: 25px;
+  }
+  .button {
+    width: 80px;
+    font-size: 20px;
+    padding: 5px;
+  }
+  #show p{
+    font-size: 25px;
   }
 }
 /* -----------Desktop View----------- */ 
 @media only screen and (min-width : 769px)   {
-  #form h1 {
+  #content {
+    width: 800px;
+    height: 600px;
+    padding: 10px;
+  }
+  h1 {
+    font-size: 60px;
+  }
+  form {
+    width: 400px;
+    height: 130px;
+    padding: 30px;
+    font-size: 25px;
+  }
+  .button {
+    width: 80px;
+    font-size: 20px;
+    padding: 5px;
+  }
+  #show p{
+    font-size: 30px;
   }
 }
