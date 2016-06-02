@@ -27,6 +27,8 @@ h1 {
   background-image: url("../img/2.png");
 }
 #screen {
+/*  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;*/
   background-color: #AEADAD;
   background-position: right top;
   background-repeat: no-repeat;
