@@ -35,11 +35,9 @@ var SendToEdison = function(id, action) {
 
 // show action on browser
 var ShowOnBrowser = function(id, action) {
-	if (id === "1") {
-		io.emit('show1', action);
-	} else if (id === "2") {
-		io.emit('show2', action);
-	}
+	var data = { id: id, action: action}
+	console.log(data);
+	io.emit('show', data);
 };
 
 // API :: get data from other devices
@@ -55,8 +53,6 @@ app.get("/get", function(req, res){
 		break;
 		default:
 	}  
-	// SendToEdison(req.param('id'), req.param('action'));
-	// ShowOnBrowser(id, action);
 })
 
 // get data from browser
@@ -64,8 +60,7 @@ io.on('connection', function(socket){
 	socket.on('getdata', function(data){
 		var id = data.id;
 		var action = data.action;
-		console.log(data);
-		SendToEdison(data.id, data.action);
+		SendToEdison(id, action);
 		ShowOnBrowser(id, action);
 	})
 })

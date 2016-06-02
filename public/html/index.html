@@ -19,11 +19,11 @@
 <div id="content">
   <form name="myForm" ng-controller="myCtl1" id="form">
     <!-- <div id="form2"> -->
-      <input type="radio" ng-model="id" value="1" ng-change="radio1()" > No 1 </input>
-      <input type="radio" ng-model="id" value="2" ng-change="radio2()" > No 2 </input>
+      <input type="radio" ng-model="id" value="1" ng-change="radio1()" ><span id="id1" class="id"> No 1 </span></input>
+      <input type="radio" ng-model="id" value="2" ng-change="radio2()" ><span id="id2"> No 2 </span></input>
       <div id="screen" class="radio1">
         <div id="show">
-          <p>No1 is <span  id="show1"></span></p>
+          <p>No1 is <span id="show1"></span></p>
           <p>No2 is <span id="show2"></span></p>
         </div>
       </div>
