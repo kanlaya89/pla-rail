@@ -7,10 +7,10 @@ app.controller('myCtl1', function($scope){
   // id radio button is checked
   $scope.radio1=function() {
     console.log("radio1");
-    $("#form").removeClass("radio2").addClass("radio1");
+    $("#screen").removeClass("radio2").addClass("radio1");
   }
   $scope.radio2=function() {
-    $("#form").removeClass("radio1").addClass("radio2");
+    $("#screen").removeClass("radio1").addClass("radio2");
     console.log("radio2");
   }
 
@@ -32,8 +32,8 @@ app.controller('myCtl1', function($scope){
 // get socket data from server
 socket.on('show1', function(action){
   console.log('show1'+ action);
-  $('#show1').text("No1 is "+ action);
+  $('#show1').text(action);
 });
 socket.on('show2', function(action){
-  $('#show2').text("No2 is "+ action);
+  $('#show2').text(action);
 });

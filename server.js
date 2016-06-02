@@ -23,7 +23,7 @@ var SendToEdison = function(id, action) {
 	} else if (id === "2") {
 		edison_url = "http://localhost:8000/led";
 	}
-	/* ++++++++ request here ++++++++++ */
+	/* ++++++++ send request ++++++++++ */
 	request.get({
 		url: edison_url+action,
 		form: {action: action}
@@ -46,8 +46,17 @@ var ShowOnBrowser = function(id, action) {
 app.get("/get", function(req, res){
 	var id = req.param('id');
 	var action = req.param('action');
-	SendToEdison(req.param('id'), req.param('action'));
-	ShowOnBrowser(id, action);
+	switch(action) {
+		case "On":
+		case "Off":
+		case "Middle": 
+			SendToEdison(req.param('id'), req.param('action'));
+			ShowOnBrowser(id, action);
+		break;
+		default:
+	}  
+	// SendToEdison(req.param('id'), req.param('action'));
+	// ShowOnBrowser(id, action);
 })
 
 // get data from browser
