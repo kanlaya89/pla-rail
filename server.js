@@ -23,6 +23,7 @@ var SendToEdison = function(id, action) {
 	} else if (id === "2") {
 		edison_url = "http://localhost:8000/led";
 	}
+
 	/* ++++++++ send request ++++++++++ */
 	request.get({
 		url: edison_url+action,
@@ -53,7 +54,11 @@ app.get("/get", function(req, res){
 		break;
 		default:
 	}  
-})
+});
+
+app.get("/place", function(req, res){
+	console.log(req.param('cond')); 
+});
 
 // get data from browser
 io.on('connection', function(socket){
