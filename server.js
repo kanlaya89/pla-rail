@@ -5,16 +5,16 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
-
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
+//--------- Open HTML
 app.get('/', function (req, res) {
    res.sendFile(__dirname + "/public/html/index.html" );
 })
 
-// send to edison 
+//--------- Function :: Send Request to Edison 
 var SendToEdison = function(id, action) {
 	var edison_url;
 	if (id === "1") {
@@ -23,8 +23,7 @@ var SendToEdison = function(id, action) {
 	} else if (id === "2") {
 		edison_url = "http://localhost:8000/led";
 	}
-
-	/* ++++++++ send request ++++++++++ */
+	// send request
 	request.get({
 		url: edison_url+action,
 		form: {action: action}
@@ -34,14 +33,16 @@ var SendToEdison = function(id, action) {
 	});
 };
 
-// show action on browser
-var ShowOnBrowser = function(id, action) {
+//--------- Function :: Display On Browser
+var DisplayOnBrowser = function(id, action) {
 	var data = { id: id, action: action}
 	console.log(data);
 	io.emit('show', data);
 };
 
-// API :: get data from other devices
+
+
+//--------- API :: Edison controll {id, action}
 app.get("/get", function(req, res){
 	var id = req.param('id');
 	var action = req.param('action');
@@ -49,35 +50,32 @@ app.get("/get", function(req, res){
 		case "On":
 		case "Off":
 		case "Middle": 
-			SendToEdison(req.param('id'), req.param('action'));
-			ShowOnBrowser(id, action);
+			SendToEdison(id, action);
+			DisplayOnBrowser(id, action); 
 		break;
 		default:
 	}  
 });
 
+//--------- API :: Get place {cond}
 app.get("/place", function(req, res){
 	console.log(req.param('cond')); 
 });
 
-// get data from browser
+//---------  Get data from browser
 io.on('connection', function(socket){
 	socket.on('getdata', function(data){
 		var id = data.id;
 		var action = data.action;
 		SendToEdison(id, action);
-		ShowOnBrowser(id, action);
+		DisplayOnBrowser(id, action);
 	})
 })
 
+//--------- Listening on port
 http.listen(3000, function () {
   console.log('Example app listening on port 3000!');
 });
+
 // var server = app.listen(3000,'192.168.88.89', function () {
-
-//   var host = server.address().address
-//   var port = server.address().port
-
-//   console.log("Example app listening at http://%s:%s", host, port)
-// })
 
