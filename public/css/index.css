@@ -129,29 +129,6 @@ h1 {
     font-size: 35px;
   }
 }
-/*/*------------ iPad mimi in lanscape -------------*/
-/*@media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) 
-and (-webkit-min-device-pixel-ratio: 1)  {
-  h1 {
-    font-size: 60px;
-  }
-  form {
-    width: 400px;
-    height: 450px;
-    padding: 10px;
-    font-size: 25px;
-  }
-  .button {
-    width: 80px;
-    font-size: 20px;
-    padding: 5px;
-  }
-  #screen p{
-    font-size: 30px;
-  }
-}*/
 
 /* -----------Desktop View----------- */ 
 @media only screen and (min-width : 769px)   {

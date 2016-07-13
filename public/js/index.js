@@ -1,4 +1,4 @@
-var app = angular.module('SPEED', []);
+var app = angular.module('SPEED');
 var socket = io.connect();
 
 /*---------------   AngularJS  --------------*/

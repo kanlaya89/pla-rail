@@ -10,6 +10,9 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
+app.get('/stop', function (req, res) {
+   res.sendFile(__dirname + "/public/html/stop.html" );
+});
 app.get('/', function (req, res) {
    res.sendFile(__dirname + "/public/html/index.html" );
 })
@@ -60,7 +63,7 @@ app.get("/place", function(req, res){
 	console.log(req.param('cond')); 
 });
 
-// get data from browser
+// get data {id, action} from ":/"
 io.on('connection', function(socket){
 	socket.on('getdata', function(data){
 		var id = data.id;
@@ -68,16 +71,14 @@ io.on('connection', function(socket){
 		SendToEdison(id, action);
 		ShowOnBrowser(id, action);
 	})
-})
+});
+
+// get data {bt} from "/stop"
+io.on('button', function(bt) {
+	console.log(bt);
+});
 
 http.listen(3000, function () {
   console.log('Example app listening on port 3000!');
 });
-// var server = app.listen(3000,'192.168.88.89', function () {
-
-//   var host = server.address().address
-//   var port = server.address().port
-
-//   console.log("Example app listening at http://%s:%s", host, port)
-// })
 

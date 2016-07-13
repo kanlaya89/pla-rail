@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Stop Pla-rail</title>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+  <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+  <script src="../js/stop.js"></script>
+  <link rel="stylesheet" href="../css/stop.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+</head>
+<body ng-app="STOP">
+<form ng-controller="myCtl1">
+	<h1>Stop Pla-rail</h1>
+	<button class="button" ng-click="button1()">station1</button>
+	<button class="button" ng-click="button2()">station2</button>
+	<button class="button" ng-click="button3()">station3</button>
+	<div class="circle">
+		<button >Click</button>
+	  <div class="circle__inner">
+	    <div class="circle__wrapper">
+	      <div class="circle__content">Circle text</div>
+	    </div>
+	  </div>
+	</div>
+</form>
+</body>
+</html>
